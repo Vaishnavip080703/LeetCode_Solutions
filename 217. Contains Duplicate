@@ -1,0 +1,22 @@
+class Solution(object):
+    def containsDuplicate(self, nums):
+        d = {}
+        found = False
+        for i in nums:
+            if i not in d:
+                d[i] = 1
+            else:
+                d[i] += 1
+        for i,j in d.items():
+            if j > 1:
+                found = True
+                break
+            else:
+                found = False
+        return found
+        
+
+
+nums = [1,2,3,1]
+v = Solution()
+print(v.containsDuplicate(nums))
