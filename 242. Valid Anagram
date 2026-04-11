@@ -1,0 +1,15 @@
+class Solution(object):
+    def isAnagram(self, s, t):
+        found  = False
+        m = "".join(sorted(s))
+        n = "".join(sorted(t))
+        if n == m:
+            found = True
+        else:
+            found = False
+        return found       
+        
+s = "anagram"
+t = "nagaram"
+v = Solution()
+print(v.isAnagram(s,t))
