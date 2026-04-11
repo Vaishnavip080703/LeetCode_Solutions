@@ -1,0 +1,23 @@
+class Solution(object):
+    def groupAnagrams(self, strs):
+        l = k = []
+        b = []
+        d ={}
+        for i in strs:
+            m = "".join(sorted(i))
+            l.append(m)
+        #print(l)
+        for i in range(len(l)):
+            if l[i] not in d:
+                d[l[i]] = []
+                d[l[i]].append(strs[i])
+            else:
+                d[l[i]].append(strs[i])
+        for  j in d.values():
+            b.append(j)
+        return b
+            
+            
+strs = ["eat","tea","tan","ate","nat","bat"]
+v = Solution()
+print(v.groupAnagrams(strs))
