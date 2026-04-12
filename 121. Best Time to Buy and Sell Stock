@@ -1,0 +1,18 @@
+class Solution(object):
+    def maxProfit(self, prices):
+        min_val = prices[0]
+        profit = 0
+        for i in range(len(prices)):
+            if prices[i] <= min_val:
+                min_val = prices[i]
+                print(min_val)
+            current_profit = prices[i] - min_val
+            
+            if current_profit > profit:
+                profit = current_profit
+        #print(min_val,min_ind)
+        return profit
+
+prices = [2,4,1,6,8,3,9]
+v = Solution()
+print(v.maxProfit(prices))
