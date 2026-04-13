@@ -1,0 +1,25 @@
+class Solution(object):
+    def longestConsecutive(self, nums):
+        num_set = set(nums)
+        max_len = 0
+
+        for num in num_set:
+            # only start from beginning of sequence
+            if num - 1 not in num_set:
+                current = num
+                length = 1
+
+            # expand forward
+                while current + 1 in num_set:
+                    current += 1
+                    length += 1
+
+                max_len = max(max_len, length)
+
+        return max_len
+
+
+# Example
+nums = [0,3,7,2,5,8,4,6,0,1]
+v = Solution()
+print(v.longestConsecutive(nums))  # Output: 9
