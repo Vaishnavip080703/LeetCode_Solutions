@@ -1,0 +1,19 @@
+class Solution(object):
+    def isPalindrome(self, s):
+        sm = s.lower()
+        m = ""
+        dup = ""
+        for i in sm:
+            if i.isalnum():
+                m += i
+        for i in range(len(m)-1, -1, -1):
+            dup += m[i]
+            
+        if m == dup:
+            found = True
+        else:
+            found = False
+        return found
+s = "A man, a plan, a canal: Panama"
+v = Solution()
+print(v.isPalindrome(s))      
