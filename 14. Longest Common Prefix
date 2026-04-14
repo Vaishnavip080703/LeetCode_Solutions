@@ -1,0 +1,25 @@
+class Solution(object):
+    def longestCommonPrefix(self, strs):
+        prev = len(strs[0])
+
+        for i in strs:
+            if prev > len(i):
+                prev = len(i)
+
+        dup = ""
+
+        for i in range(prev):
+            m = strs[0][i]
+
+            for j in strs:
+                if m != j[i]:
+                    return dup
+
+            dup += m
+
+        return dup
+
+
+strs = ["dog", "racecar", "car"]
+v = Solution()
+print(v.longestCommonPrefix(strs))
