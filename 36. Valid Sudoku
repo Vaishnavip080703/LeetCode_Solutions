@@ -1,0 +1,51 @@
+class Solution(object):
+    def isValidSudoku(self, board):
+        s = set()
+        for i in board:
+            for j in range(len(i)):
+                if i[j] != '.':
+                    if i[j] in s:
+                        return False
+                    else:
+                        s.add(i[j])
+            #print(s)
+            s = set()
+        founnd =  True
+        
+        for col in range(len(board)):
+            dup = set()
+            for row in range(len(board[col])):
+                value = board[row][col]
+                if value != '.':
+                    if value in dup:
+                        return False
+                    else:
+                        dup.add(value)
+            print(dup)
+        founnd = True
+        for box_row in [0,3,6]:
+            for box_col in [0,3,6]:
+                em_set = set()
+                for i in range(3):
+                    for j in range(3):
+                        value = board[box_row + i][box_col + j]
+
+                        if value != ".":
+                            if value in em_set:
+                                return False
+                            else:
+                                em_set.add(value)
+        return True        
+                    
+board = [["5","3",".",".","7",".",".",".","."]
+,["6",".",".","1","9","5",".",".","."]
+,[".","9","8",".",".",".",".","6","."]
+,["8",".",".",".","6",".",".",".","3"]
+,["4",".",".","8",".","3",".",".","1"]
+,["7",".",".",".","2",".",".",".","6"]
+,[".","6",".",".",".",".","2","8","."]
+,[".",".",".","4","1","9",".",".","5"]
+,[".",".",".",".","8",".",".","7","9"]]
+
+v = Solution()
+print(v.isValidSudoku(board))
