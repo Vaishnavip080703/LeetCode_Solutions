@@ -1,0 +1,22 @@
+class Codec():
+    def __init__(self):
+        self.indx = 0
+        self.d = {}
+    
+    def encode(self,inp):
+        self.d[self.indx] = inp
+        inp = "http://tinyurl/"+str(self.indx)
+        self.indx +=1
+        return inp
+
+    def decode(self,m):
+        k = m.split('/')
+        id = k[-1]
+        print(id)
+        url = self.d[int(id)]
+        return url
+        
+url = "https://leetcode.com/problems/design-tinyurl"
+v = Codec()
+stroe = v.encode(url)
+print(v.decode(stroe))
