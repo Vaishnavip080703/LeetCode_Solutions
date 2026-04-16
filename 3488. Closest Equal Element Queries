@@ -1,0 +1,42 @@
+import bisect
+
+class Solution(object):
+    def solveQueries(self, nums, qu):
+        n = len(nums)
+
+        # value → list of indices
+        pos = {}
+        for i, v in enumerate(nums):
+            pos.setdefault(v, []).append(i)
+
+        ans = []
+
+        for i in qu:
+            val = nums[i]
+            arr = pos[val]
+
+            # only one occurrence
+            if len(arr) == 1:
+                ans.append(-1)
+                continue
+
+            idx = bisect.bisect_left(arr, i)
+
+            # check 3 possible neighbors in circular list
+            candidates = [
+                arr[(idx - 1) % len(arr)],
+                arr[idx % len(arr)],
+                arr[(idx + 1) % len(arr)]
+            ]
+
+            res = float('inf')
+
+            for j in candidates:
+                if j == i:
+                    continue
+                d = abs(i - j)
+                res = min(res, d, n - d)
+
+            ans.append(res)
+
+        return ans
