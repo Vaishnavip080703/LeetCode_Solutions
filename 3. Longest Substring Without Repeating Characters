@@ -1,0 +1,24 @@
+class Solution(object):
+    def lengthOfLongestSubstring(self, s):
+        m = ""
+        max_len = 0
+        
+        for i in range(len(s)):
+            if s[i] not in m:
+                m += s[i]
+            else:
+                # find where duplicate occurred in m
+                idx = m.index(s[i])
+                
+                # cut m after that duplicate and add current char
+                m = m[idx+1:] + s[i]
+            
+            # update max length
+            max_len = max(max_len, len(m))
+        
+        return max_len
+
+
+s  = "pwwekw"
+v  = Solution()
+print(v.lengthOfLongestSubstring(s))
