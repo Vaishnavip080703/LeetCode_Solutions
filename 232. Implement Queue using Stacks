@@ -1,0 +1,32 @@
+class MyQueue(object):
+
+    def __init__(self):
+        self.opertaions = ["MyQueue", "push", "push", "peek", "pop", "empty"]
+        self.values = [[], [1], [2], [], [], []]
+        self.stack = []
+
+    def push(self, x):
+        self.stack.append(x)
+        
+        
+
+    def pop(self):
+        return self.stack.pop(0)
+        
+
+    def peek(self):
+        return self.stack[0] if self.stack else None
+        
+
+    def empty(self):
+        m = len(self.stack)
+        return len(self.stack) == 0
+        
+
+
+# Your MyQueue object will be instantiated and called as such:
+obj = MyQueue()
+obj.push(3)
+param_2 = obj.pop()
+param_3 = obj.peek()
+param_4 = obj.empty()
