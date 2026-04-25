@@ -1,0 +1,43 @@
+# Definition for singly-linked list.
+class ListNode(object):
+     def __init__(self, val=0, next=None):
+         self.val = val
+         self.next = next
+class LinkedList():
+    def insert_node(self,head):
+        if len(head) == 0:
+            return None
+        self.head = ListNode(head[0])
+        current = self.head
+        for i in head[1:]:
+            current.next = ListNode(i)
+            current =  current.next
+        return self.head
+class Solution(object):
+    def deleteDuplicates(self, head):
+        if head is None:
+            return None
+        current = head
+        print(current)
+        while current and current.next:
+            temp = current.next
+            print("current")
+            if current.val == temp.val:
+                current.next = temp.next
+            else:
+                current = current.next
+                
+        return head
+                
+        
+head = []
+
+m = LinkedList()
+had = m.insert_node(head)
+v =Solution()
+h = (v.deleteDuplicates(had))
+
+temp = h
+while temp:
+    print(temp.val)
+    temp = temp.next
