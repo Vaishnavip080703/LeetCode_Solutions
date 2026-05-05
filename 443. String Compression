@@ -1,0 +1,33 @@
+class Solution(object):
+    def compress(self, chars):
+        i = 0   # read pointer
+        k = 0   # write pointer
+        
+        while i < len(chars):
+            j = i
+            
+            # count duplicates
+            while j < len(chars) and chars[j] == chars[i]:
+                j += 1
+            
+            count = j - i
+            
+            # write character
+            chars[k] = chars[i]
+            k += 1
+            
+            # write count if > 1
+            if count > 1:
+                for digit in str(count):
+                    chars[k] = digit
+                    k += 1
+            
+            i = j
+        
+        return k
+        
+chars = ["a","b","b","b","b","b","b","b","b","b","b","b","b"]
+
+v = Solution()
+#[true,false,false,true,true,true,false,false]
+print(v.compress(chars))
