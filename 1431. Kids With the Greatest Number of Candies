@@ -1,0 +1,18 @@
+class Solution(object):
+    def kidsWithCandies(self, s, c):
+        l = []
+        m = max(s)
+        #print(m)
+        for i in range(len(s)):
+            k = s[i]+c
+            if k >= m:
+                l.append('true')
+            else:
+                l.append('false')
+        return l
+        
+candies = [7,2,5,6,9,9,4,5]
+extraCandies = 3
+v = Solution()
+#[true,false,false,true,true,true,false,false]
+print(v.kidsWithCandies(candies,extraCandies))
