@@ -1,0 +1,28 @@
+class Solution(object):
+    def reverseVowels(self, s):
+        start = 0
+        s = list(s)
+        end = len(s)-1
+        l = ["A","E","I","O","U","a","e","i","o","u"]
+        while end>start:
+            if s[start] not in l:
+                 start += 1
+            elif s[end] not in l:
+                end -= 1
+            else:
+                temp = s[start]
+                s[start] = s[end]
+                s[end] = temp
+                start +=1
+                end -= 1
+        print(s)
+        return "".join(s)
+        
+        
+        
+        
+chars = "IceCreAm"
+
+v = Solution()
+#[true,false,false,true,true,true,false,false]
+print(v.reverseVowels(chars))
