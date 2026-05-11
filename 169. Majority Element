@@ -1,0 +1,17 @@
+class Solution(object):
+    def majorityElement(self, nums):
+        m = len(nums)
+        d = {}
+        for i in nums:
+            if i not in d:
+                d[i] = 1
+            else:
+                d[i] += 1
+        print(d)
+        for k,j in d.items():
+            if j > m/2:
+                return k
+
+nums = [2,2,1,1,1,2,2]
+v = Solution()
+print(v.majorityElement(nums))
