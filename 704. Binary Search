@@ -1,0 +1,28 @@
+class Solution(object):
+    def search(self, nums,target):
+        start = 0
+        end = len(nums)-1
+        while start<=end:
+            if nums[start] == target:
+                print(start,end)
+                found = 1
+                index = start
+                break
+            if nums[end] == target:
+                found =1
+                index = end
+                break
+            else:
+                found = 0
+                start +=1
+                end -=1
+        if found:
+            return index
+        else:
+            return -1
+            
+
+nums = [-1,0,3,5,9,12]
+target = 9
+v = Solution()
+print(v.search(nums,target))
