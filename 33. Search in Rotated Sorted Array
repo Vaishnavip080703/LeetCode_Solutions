@@ -1,0 +1,19 @@
+class Solution(object):
+    def search(self, nums, target):
+        count = 0
+        for i in range(len(nums)):
+            if target == nums[i]:
+                found = 1
+                break
+            else:
+                found = 0
+                count +=1
+        if found:
+            return count
+        else:
+            return -1
+   
+nums = [4,5,6,7,0,1,2]
+target = 3
+v = Solution()
+print(v.search(nums,target))
