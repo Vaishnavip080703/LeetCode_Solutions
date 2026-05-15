@@ -1,0 +1,32 @@
+class ListNode(object):
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+
+class Solution(object):
+    def removeNthFromEnd(self, head, n):
+
+        # Step 1: count nodes
+        count = 0
+        temp = head
+        while temp:
+            count += 1
+            temp = temp.next
+
+        # Step 2: find position from start
+        needed = count - n
+
+        # Step 3: remove head case
+        if needed == 0:
+            return head.next
+
+        # Step 4: move to node before target
+        current = head
+        while needed > 1:
+            current = current.next
+            needed -= 1
+
+        # Step 5: delete node
+        current.next = current.next.next
+
+        return head
