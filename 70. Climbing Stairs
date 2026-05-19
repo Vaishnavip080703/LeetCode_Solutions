@@ -1,0 +1,15 @@
+class Solution(object):
+    def climbStairs(self, n):
+        first = 0
+        second = 1
+        for i in range(n):
+            third = first + second
+            first = second
+            second = third
+        return second
+        
+    
+n = 2
+v = Solution()
+print(v.climbStairs(n))
+        
