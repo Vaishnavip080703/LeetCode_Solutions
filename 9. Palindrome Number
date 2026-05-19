@@ -1,0 +1,22 @@
+class Solution(object):
+    def isPalindrome(self, n):
+        copy = n
+        if n < 0:
+                return False
+        else:
+                found = 0
+        rem = 0
+        while n>0:
+                su = n %10
+                rem = rem * 10 + su
+                n = n //10
+        print(rem)
+        if rem == copy:
+            return True
+        else:
+            return False
+    
+x = -121
+v = Solution()
+print(v.isPalindrome(x))
+        
