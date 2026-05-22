@@ -1,0 +1,20 @@
+class Solution(object):
+    def singleNumber(self, nums):
+        d = {}
+        l = []
+        for i in nums:
+            if i not in d:
+                d[i] = 1
+            else:
+                d[i] +=1
+        for i,j in d.items():
+            if j ==1:
+                l.append(i)
+        return l
+        
+        
+nums = [1,2,1,3,2,5]
+#Output: [3,5]
+v = Solution()
+print(v.singleNumber(nums))
+        
