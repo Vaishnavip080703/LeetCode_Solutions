@@ -1,0 +1,25 @@
+class Solution(object):
+    def threeSumClosest(self, nums, target):
+        nums = sorted(nums)
+        f =  nums[0] + nums[1] + nums[2]
+        for i in range(len(nums)-2):
+            first = nums[i]
+            start = i+1
+            end = len(nums)-1
+            
+            while start < end:
+                ans =  first + nums[start]+nums[end]
+                if abs(ans - target) < abs(f - target):
+                    f = ans
+                if ans <= target:
+                    start +=1
+                if ans > target:
+                    end -= 1
+        return f
+            
+        
+nums = [0,1,2]
+target = 3
+v = Solution()
+print(v.threeSumClosest(nums, target))
+        
