@@ -1,0 +1,20 @@
+class Solution(object):
+    def findMedianSortedArrays(self, nums1,nums2):
+        nums1.extend(nums2)
+        nums1 = sorted(nums1)
+        print(nums1)
+        l = len(nums1)
+        if l%2 != 0:
+            f = float(nums1[l//2])
+            return f
+        else:
+            mid1 = nums1[l//2 -1]
+            mid2 = nums1[l//2]
+            f = float((mid1+mid2)/2.0)
+            return f
+        
+nums1 = [1,2]
+nums2 = [3,4]
+v = Solution()
+print(v.findMedianSortedArrays(nums1,nums2))
+        
