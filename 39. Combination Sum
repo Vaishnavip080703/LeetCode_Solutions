@@ -1,0 +1,22 @@
+class Solution:
+    def combinationSum(self, candidates, target):
+        ans = []
+
+        def dfs(i, total, path):
+            if total == target:
+                ans.append(path[:])
+                return
+
+            if total > target or i == len(candidates):
+                return
+
+            # Take current number
+            path.append(candidates[i])
+            dfs(i, total + candidates[i], path)
+            path.pop()
+
+            # Skip current number
+            dfs(i + 1, total, path)
+
+        dfs(0, 0, [])
+        return ans
