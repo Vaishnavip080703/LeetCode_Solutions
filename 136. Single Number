@@ -1,0 +1,18 @@
+class Solution(object):
+    def singleNumber(self, nums):
+        d = {}
+        for i in range(len(nums)):
+            if nums[i] not in d:
+                d[nums[i]] = 1
+            elif nums[i] in d:
+                d[nums[i]] +=1
+        print(d)
+        for i,j in d.items():
+            if j ==1:
+                return i
+        
+        
+        
+nums = [2,2,1]
+v = Solution()
+print(v.singleNumber(nums))
