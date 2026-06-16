@@ -1,0 +1,23 @@
+class Solution(object):
+    d = {
+        "I": 1, "V": 5, "X": 10,
+        "L": 50, "C": 100,
+        "D": 500, "M": 1000
+    }
+
+    def romanToInt(self, s):
+        m = 0
+
+        for i in range(len(s) - 1):
+            if self.d[s[i]] < self.d[s[i + 1]]:
+                m -= self.d[s[i]]
+            else:
+                m += self.d[s[i]]
+
+        m += self.d[s[-1]]
+        return m
+
+
+s = "LVIII"
+v = Solution()
+print(v.romanToInt(s))
