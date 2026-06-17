@@ -1,0 +1,20 @@
+
+class Solution(object):
+    def containsNearbyDuplicate(self, nums, k):
+        s = {}
+        d = 0
+        for i in range(len(nums)):
+            if nums[i] in s:
+                d = abs(s[nums[i]] - i)
+                if d <=k:
+                    return True
+                
+            
+            s[nums[i]] = i
+
+        return False
+            
+nums = [1,2,3,1]
+k = 3
+v = Solution()
+print(v.containsNearbyDuplicate(nums,k))
