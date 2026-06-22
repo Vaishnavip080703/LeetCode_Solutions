@@ -1,0 +1,20 @@
+class Solution(object):
+    def getConcatenation(self, nums):
+        i = 0
+        j = 0
+        #ans = []
+        ans = [0]*(len(nums)*2)
+        while i<(len(nums)*2):
+            if j >= len(nums):
+                j = 0
+            ans[i] = nums[j]
+            print(nums[j],i,j)
+            #ans.append(nums[j])
+            
+            i+=1
+            j+=1
+        return ans
+        
+nums = [1,2,1]
+v = Solution()
+print(v.getConcatenation(nums))
