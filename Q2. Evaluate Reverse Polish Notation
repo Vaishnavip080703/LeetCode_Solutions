@@ -1,0 +1,25 @@
+class Solution(object):
+    def evalRPN(self, tokens):
+        s = []
+
+        for i in range(len(tokens)):
+            if tokens[i] not in {"+", "-", "*", "/"}:
+                s.append(int(tokens[i]))
+            else:
+                operator = tokens[i]
+
+                right = s.pop()
+                left = s.pop()
+
+                if operator == "+":
+                    m = left + right
+                elif operator == "-":
+                    m = left - right
+                elif operator == "*":
+                    m = left * right
+                elif operator == "/":
+                    m = int(float(left) / float(right))
+
+                s.append(m)
+
+        return s[0]
